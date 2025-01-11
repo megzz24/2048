@@ -42,6 +42,19 @@ function updateTile(tile, num) {
     if (num > 0) {
         tile.innerText = num.toString();
 
+        if (num == 2048 && !hasWon) {
+            const winMessage = document.getElementById("winMessage");
+
+            setTimeout(() => {
+                winMessage.style.display = "flex";
+                hasWon = true;
+            }, 1000);
+
+            setTimeout(() => {
+                winMessage.style.display = "none";
+            }, 3000);
+        }
+
         if (num <= 4096) {
             tile.classList.add("x"+num.toString());
         } else {
