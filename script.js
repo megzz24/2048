@@ -29,6 +29,9 @@ function setGame() {
 
     setTwo();
     setTwo();
+
+    const newGameButton = document.getElementById("newGame");
+    newGameButton.addEventListener("click", resetGame);
 }
 
 function updateTile(tile, num) {
@@ -93,6 +96,17 @@ document.addEventListener("keyup", (event) => {
     }
 
     document.getElementById("score").innerText = score;
+
+    if (checkGameOver()) {
+        const gameOverMessage = document.getElementById("gameOverMessage");
+        gameOverMessage.style.display = "flex";
+        gameOverMessage.style.flexDirection = "column";
+        gameOverMessage.style.alignItems = "center";
+        gameOverMessage.style.padding = "40px 225px";
+
+        const tryAgainButton = document.getElementById("tryAgain");
+        tryAgainButton.addEventListener("click", resetGame);
+    }
 })
 
 function slideLeft() {
@@ -196,4 +210,41 @@ function setTwo() {
             found = true;
         }
     }
+}
+
+function checkGameOver() {
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            if (board[r][c] == 0) {
+                return false;
+            }
+
+            if (r > 0 && board[r][c] == board[r - 1][c]) return false;
+            if (r < rows - 1 && board[r][c] == board[r + 1][c]) return false;
+            if (c > 0 && board[r][c] == board[r][c - 1]) return false;
+            if (c < cols - 1 && board[r][c] == board[r][c + 1]) return false;
+        }
+    }
+
+    return true;
+}
+
+function resetGame() {
+    const gameOverMessage = document.getElementById("gameOverMessage");
+    gameOverMessage.style.display = "none";
+
+    board = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+    ];
+    score = 0;
+    hasWon = false;
+
+    const boardDiv = document.getElementById("board");
+    boardDiv.innerHTML = "";
+
+    setGame();
+    document.getElementById("score").innerText = score;
 }
