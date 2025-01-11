@@ -61,6 +61,40 @@ body {
     margin-top: 50px;
 }
 
+.message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    font-weight: bold;
+    background: rgba(30, 30, 30, 0.7);
+    padding: 50px 50px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+}
+
+.message p {
+    white-space: nowrap;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: lightcoral;
+    color: black;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    background-color:indianred;
+}
+
 .tile {
     width: 90px;
     height: 90px;
