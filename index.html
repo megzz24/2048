@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>2048</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <div id="header">
+            <div>
+                <h1 id = "title">2048</h1>
+                <div id="info">Merge the tiles and get to <span id="name">the 2048 tile!</span> </div>
+            </div>
+            <div>
+                <h2 id="scoreboard">Score: <span id="score">0</span></h2>
+                <button id="newGame">New Game</button>
+            </div>
+        </div>
+        <div id="board"></div>
+        <div id="winMessage" class="message">
+            <p>You reached 2048! Congratulations!</p>
+        </div>
+        <div id="gameOverMessage" class="message">
+            <p>Game Over!</p>
+            <button id="tryAgain">Try Again</button>
+        </div>
+    </body>
+</html>
